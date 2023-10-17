@@ -4,7 +4,7 @@
 class Shape {
 
 public:
-    virtual std::string description() {
+    virtual std::string description() const {
         return "I'm  a shape";
     }
 
@@ -16,30 +16,38 @@ class Circle : public Shape {
     double radius;
 public:
     Circle(double radius): radius(radius) {}
-    double get_radius() {return radius;}
 
-    std::string description() override{
+    std::string description() const override{
         return "I'm a Circle";
+    }
+
+    double get_radius() const {
+        return radius;
+    }
+
+    void set_radius(double radius) {
+        this -> radius = radius;
     }
 };
 
 int main() {
     using namespace std;
-    Shape shape;
-    cout << "description of shape:  " << shape.description() << endl;
-    //description of shape:  I'm a shape
 
-    Circle circle{4};
+    const Circle circle{4};
     cout << "description of circle: " << circle.description() << endl;
     //description of circle: I'm a circle
 
-    Shape &circle_shape = circle; //reference assignment
-    cout << "description of a reference to circle: " << circle_shape.description() << endl;
-    //description of a reference to circle: I'm a Circle
-
-
     cout << "radius of circle: " << circle.get_radius() << endl;
     //radius of circle: 4
+
+    //circle.set_radius(5);
+    //wouldn't work, we cannot call set_radius on circle because it's const.
+
+    Circle mutable_circle{5};
+    mutable_circle.set_radius(6);
+
+    cout << "radius of mutable_circle: " << mutable_circle.get_radius() << endl;
+    //radius of mutable_circle: 6
 
     return 0;
 }
