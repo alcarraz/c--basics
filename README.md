@@ -2,9 +2,10 @@
 
 This repository is for holding the sources of the basic c++ series that I'm posting in LinkedIn.
 
-For now, each post is a new tag since I'm building on top o the previous. At some point it will be refactored in directories by topics.
+Each directory has the content for a given day.
 
 ## build & run.
+In each directory, just perform `make run` to build and run the example, of course you need make and g++ installed.
 
 ```shell-session
 $ make run
