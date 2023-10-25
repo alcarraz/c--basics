@@ -3,20 +3,37 @@
 This is the 7th post in C++ basics series, continuing with the last posts about method overriding and abstract classes, let's talk about polymorphism.
 
 
-Polymorphism is one of the most powerful features of object oriented programming. It allows you to write code that can perform different actions depending on the actual type of an object. 
+
+
+
+Polymorphism is one of the most powerful features of object-oriented programming. It allows you to write code that can perform different actions depending on the actual type of the object. 
+
+
 
 As you'll see, even without knowing all the possible types. This makes your code more flexible and reusable.
 
 
-When you have a reference, or a pointer to a class with a virtual method, the actual object can be of any subclass, and as we saw in day 4 (method overriding). And therefore, any virtual method you call on it, will call the implementation of the concrete class of the object.
 
-In the code example, the print_shapes function is polymorphic on the `type` and `area` methods, but not on `get_name` method because it's not virtual and thus it cannot be overwritten by subclasses.
 
-We code add as many `Shape` implementations as we want, and the `print_shapes` will continue to work for all of them, as long as they correctly implement its `name` and `area` methods.
+
+When you have a reference, or a pointer to a class with a virtual method, the actual object can be of any subclass, and as we saw in day 4 (method overriding, https://www.linkedin.com/posts/andresalcarraz_cpp-begginers-practice-activity-7119124727893250048-vVfj?utm_source=share&utm_medium=member_desktop). And therefore, any virtual method you call on it, will call the implementation of the concrete class of the object.
+
+
+
+In the code example, the print_shapes function is polymorphic on the `type` and `area` methods, but not on `get_name` method because it's not virtual, and thus it cannot be overwritten by subclasses.
+
+
+
+We could add as many `Shape` implementations as we want, and the `print_shapes` function will continue to work for all of them, as long as they correctly implement its `name` and `area` methods.
+
+
 
 Compiler explorer link to play with the example: https://godbolt.org/z/vsM3zs51G
 
-github link: https://github.com/alcarraz/cpp-basics/blob/main/day-07-polymorphism/src/c%2B%2B-basics.cpp
+
+
+GitHub link: https://github.com/alcarraz/cpp-basics/blob/main/day-07-polymorphism/src/c%2B%2B-basics.cpp
+
 
 
 ```c++
